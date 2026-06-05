@@ -3,24 +3,23 @@ package helper
 import (
 	"fmt"
 	"testing"
+
+	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
-func TestHelloWorldFelix(t *testing.T) {
-	result := HelloWorld("felixx")
+func TestHelloWorldRequire(t *testing.T) {
+	result := HelloWorld("felix")
 
-	if result != "Hello world felix" {
-		t.Error("Result must be Hello world felix")
-	}
+	require.Equal(t, "Hello world felix", result, "Result must be Hello world felix")
 
-	fmt.Println("TestHelloWorldFelix done")
+	fmt.Println("TestHelloWorldRequire done")
 }
 
-func TestHelloWorldXilef(t *testing.T) {
-	result := HelloWorld("xileff")
+func TestHelloWorldAssert(t *testing.T) {
+	result := HelloWorld("felix")
 
-	if result != "Hello world xilef" {
-		t.Fatal("Hello world xilef")
-	}
+	assert.Equal(t, "Hello world felix", result, "Result must be Hello world felix")
 
-	fmt.Println("TestHelloWorldXilef done")
+	fmt.Println("TestHelloWorldAssert done")
 }
