@@ -16,6 +16,32 @@ func TestMain(m *testing.M) {
 	fmt.Println("After unit tests")
 }
 
+func TestHelloWorldTable(t *testing.T) {
+	tests := []struct {
+		name     string
+		request  string
+		expected string
+	}{
+		{
+			name:     "HelloWorld(Felix)",
+			request:  "Felix",
+			expected: "Hello world Felix",
+		},
+		{
+			name:     "HelloWorld(Xilef)",
+			request:  "Xilef",
+			expected: "Hello world Xilef",
+		},
+	}
+
+	for _, test := range tests {
+		t.Run(test.name, func(t *testing.T) {
+			result := HelloWorld(test.request)
+			require.Equal(t, test.expected, result, "Result must be "+test.expected)
+		})
+	}
+}
+
 func TestSubTest(t *testing.T) {
 	fmt.Println("Start TestSubTest")
 
